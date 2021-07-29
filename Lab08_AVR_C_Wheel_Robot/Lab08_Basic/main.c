@@ -1,10 +1,5 @@
-/*
- * GccApplication6.cpp
- *
- * Created: 4/22/2019 4:04:28 PM
- * Author : user
- */ 
- #define F_CPU 1000000UL
+
+#define F_CPU 1000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 int main(void)
@@ -65,5 +60,6 @@ int main(void)
 	OCR0B=0; // 0% duty cycle
 	OCR2A=0; // 0% duty cycle
 	OCR2B=0; // 0% duty cycle
-}
+}
+
 
