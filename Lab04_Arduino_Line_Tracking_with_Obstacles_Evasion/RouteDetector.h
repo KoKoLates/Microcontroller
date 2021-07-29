@@ -1,10 +1,3 @@
-/*
- * Version
- * Author: WildfootW
- * GitHub: github.com/WildfootW
- * Copyleft (C) 2019-2020 WildfootW all rights reversed
- *
- */
 
 #ifndef ROUTEDETECTOR_H
 #define ROUTEDETECTOR_H
