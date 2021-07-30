@@ -8,9 +8,9 @@ some projects of Microcontroller Mechatronics
 ## AVR-C
 #### Lab05 : Number Display 
 #### Lab06 : Electronic Piano With 7 Segment
-#### Lab07 : 
-#### Lab08
+#### Lab07 : DMS Distance Meter
+#### Lab08 : Wheel Robot
 ## AVR-Assembly
-#### Lab09
-#### Lab10
-#### Lab11
+#### Lab09 : Number Digits Display
+#### Lab10 : Assembly Program Simulation
+#### Lab11 : Eletronic Piano Keyboard With 7 Segment
