@@ -6,9 +6,9 @@ some projects of Microcontroller Mechatronics
 #### Lab03 : Wheel Robot
 #### Lab04 : Line Tracking And Obstacle Avoidance
 ## AVR-C
-#### Lab05
-#### Lab06
-#### Lab07
+#### Lab05 : Number Display 
+#### Lab06 : Electronic Piano With 7 Segment
+#### Lab07 : 
 #### Lab08
 ## AVR-Assembly
 #### Lab09
