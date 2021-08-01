@@ -42,7 +42,7 @@ You are required to design and build a wheel robot. You are also asked to naviga
 #### Lab09 : Number Digits Display
 Connect appropriate pins of the ATmega328P to the 7-segment displays. Remember that 7-segment display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. For details of the 7-segment display, please refer to its data sheet. Write an assembly program that shows the number digits 0 through 99 indefinitely. You are required to display number digits on two 7-segment LED using an AVR ATmega328P microcontroller. The digits to be displayed are from 0 through 99. Each digit is displayed for a short period of time (e.g., 0.2 sec). The digits are displayed indefinitely using a loop.
 #### Lab10 : Assembly Program Simulation
-You will gain familiarity with assembly program tracking and debugging using Atmel Studio
+You will gain familiarity with assembly program tracking and debugging using Atmel Studio.
 #### Lab11 : Eletronic Piano Keyboard With 7 Segment
 Use a port as keyboard input, and another port as output to the 7-segment display. The keyboard is composed of several keys (switches). Connect a switch to a pin of the input port. Connect the pins of the output port to a 7-segment display. Remember that 7-segment display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write an assembly program that shows the letter of a note when the corresponding key on the keyboard is pressed.<br>
 <br>
