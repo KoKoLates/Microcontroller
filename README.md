@@ -12,7 +12,7 @@ You are required to design and build a digital watch using an Arduino MCU. The d
 #### Lab03 : Wheel Robot
 An H-bridge is a circuit that enables a voltage to be applied across a DC motor in either direction. The circuit is known as an H-Bridge because it resembles the capital letter H. An H-bridge typically comprises 4 switches. The open and close of the switches determine the motor operation. A dual H-bridge board that can be used to control up to 2 DC motors. The board comes with an L298 H-bridge chip and can provide up to 1 Amps of current to each DC motor. The H-bridge board needs to be wired to the motors, Arduino MCU, and battery appropriately.<br>
 <br>
-You are required to design and build a wheel robot. You are also asked to navigate the wheel robot to circle around a field (Fig. 1). To complete this task, you will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns.
+You are required to design and build a wheel robot. You are also asked to navigate the wheel robot to circle around a field. To complete this task, you will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns.
 #### Lab04 : Line Tracking And Obstacle Avoidance
 #### Infrared sensor (IR)
 An infrared (IR) sensor is an electronic device that emits and detects IR radiation in order to sense some aspect of its surroundings. An IR sensor is composed of an emitter and a receiver. The basic concept of IR obstacle detection is to transmit an IR signal from the emitter in a direction. If there is an object in the direction, the IR signal bounces back and is received by the IR receiver.<br>
