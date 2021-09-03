@@ -77,7 +77,7 @@ void loop(){
     delay(100);
 }
 ```
-  * Signal smoothing : 
+* Signal smoothing : 
 ```c
 int readings[10];
 int readIndex, total, average = 0;
@@ -97,7 +97,7 @@ void loop(){
     delay(10);
 }
 ```
-Serial Plotter :
+* Serial Plotter :
 ```
 Arduino > Tools > Serial Plotter (Ctrl + Shift + L)
 ```
