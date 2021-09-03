@@ -177,3 +177,6 @@ In this lab, you are required to design and build an electronic piano keyboard. 
 
 ## Installetion
 #### [Arduino](https://www.arduino.cc/)
+#### [Atmel Studio](https://www.space.ntu.edu.tw/navigate/s/75A6ED71D81449949E2587E865B819E2QQY)
+#### [AVR Dudess](https://github.com/KoKoLates/Microcontroller/tree/main/AVR_installation/AVRdudess)
+
