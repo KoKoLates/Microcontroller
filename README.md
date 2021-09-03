@@ -35,7 +35,7 @@ void setup(){
     Serial.begin(9600); //initialize serial communication at 9600 bps
 }
 ```
-Arduino function and library : [Reference](https://www.arduino.cc/reference/en/) <br/><br/>
+* Arduino function and library : [Reference](https://www.arduino.cc/reference/en/) <br/><br/>
 
 A `7-segment` LED is an electronic device for displaying decimal numerals. These displays are widely used in digital clocks, electronic meters, and basic calculators. In a typical `7-segment` LED package, all of the cathodes or all of the anodes of the segment LEDs are connected to a common pin. This is referred to as a "common cathode" or "common anode" device. <br/><br/>
 ![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/7segament.PNG)
@@ -62,7 +62,7 @@ In the project, it's required to design and build a wheel robot, and also asked 
 
 
 #### [Lab04 : Line Tracking And Obstacle Avoidance](https://github.com/KoKoLates/Microcontroller/tree/main/Lab04_Arduino_Line_Tracking_with_Obstacles_Evasion)
-**DMS sensor**
+* **DMS sensor**
 `DMS` sensors is used to detect objects or walls within a fixed distance, and the sensor is not affected by color as much as IR Sensors enabling it to measure precise distance. The recommand voltage supply is around `4.5 to 5.5V`, and it could detect in the distance region between `10 to 80 cm`. From the graph below, we could know, even if the color and reflection percentage change, the output value for the distance is barely changed.<br/><br/>
 
 ![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/DMSreflect.PNG)
@@ -102,7 +102,7 @@ Serial Plotter :
 Arduino > Tools > Serial Plotter (Ctrl + Shift + L)
 ```
 
-**Ultrasonic senser**
+* **Ultrasonic senser**
 ```c
 int TRIGPIN = 12; // Pin to send trigger pulse
 int ECHOPIN = 13; // Pin to receive echo pulse
@@ -125,7 +125,7 @@ void loop() {
 }
 ```
 
-**IR senser**
+* **IR senser**
 An infrared (IR) sensor is an electronic device that emits and detects infrared radiation to sense surroundings. It's `color sensitive`. The IR signal from the emitter does not bounce back to the receiver if the obstacle surface is in black. The threshold of IR could be adjusted by rotating the blue potentiometer in the back of the module.
 ```c
 void setup() {
