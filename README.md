@@ -11,6 +11,8 @@ Operating voltage | 5V
 Input Voltage     | 7 to 12V
 DC I/O current    |40mA
 ```
+
+
 #### [Lab01 : Electronic Piano](https://github.com/KoKoLates/Microcontroller/tree/main/Lab01_Arduino_Electronic_Piano)
 Use the piano to play the song “twinkle twinkle little star” and Write a program that plays the song “twinkle twinkle little star” automatically.<br/>
 ```c
@@ -25,6 +27,7 @@ void loop(){
     //until the power is removed
 }
 ```
+
 
 #### [Lab02 : Digital Watch](https://github.com/KoKoLates/Microcontroller/tree/main/Lab02_Arduino_Digital_Watch)
 ```c
@@ -52,19 +55,86 @@ void loop(){
 ```
 An `H-bridge` is a circuit that enables a voltage to be applied across a DC motor in either direction, and then the `dual H-bridge` board could be used to control up 2 DC motors. The board comes with an `L298 H-bridge` chip and can provide up to 1 Amps of current to each DC motor. The H-bridge board needs to be wired to the motors, Arduino MCU, and battery appropriately.<br/><br/>
 
-In the project, it's required to design and build a wheel robot, and also asked to navigate the wheel robot to circle around a field. To complete this task, it will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns by modifying the voltage value of each `H-bridge`.
+In the project, it's required to design and build a wheel robot, and also asked to navigate the wheel robot to circle around a field. To complete this task, it will need to learn how to control two direct DC motors, moving the wheel robot forward and making right and left turns by modifying the voltage value of each `H-bridge`.
 
 
 #### [Lab04 : Line Tracking And Obstacle Avoidance](https://github.com/KoKoLates/Microcontroller/tree/main/Lab04_Arduino_Line_Tracking_with_Obstacles_Evasion)
-#### Infrared sensor (IR)
-An `infrared (IR) sensor` is an electronic device that emits and detects IR radiation in order to sense some aspect of its surroundings. An IR sensor is composed of an `emitter` and a `receiver`. The basic concept of IR obstacle detection is to transmit an IR signal from the emitter in a direction. If there is an object in the direction, the IR signal bounces back and is received by the IR receiver.<br>
-<br>
-IR sensors are `color sensitive`. Black color patches block all the light. The IR signal from the emitter does not bounce back to the receiver if the obstacle surface is in black.The IR sensor module we will use is an integrated IR component. It has an analog output `A0` and a digital output `D0`. The analog output pin A0 is the output of the IR receiver and can be used to evaluate the distance between the IR sensor module and an obstacle using the ADC of a MCU. The pin D0 outputs HIGH when the object distance is greater than a threshold; otherwise, the pin D0 outputs LOW. The threshold can be adjusted by rotating the blue potentiometer in the back of the module.
-#### DMS sensor
-`DMS` sensors (Sharp IR rangers) are specially designed IR sensors. These sensors are not affected by color as much as regular IR sensors. A Sharp `GP2Y0A21YK` DMS sensor. The DMS sensor uses triangulation and a small linear `CCD array` to compute the distance and presence of objects in the field of view. The principle of the triangulation. Similar to regular IR sensors, a pulse of IR light is emitted by the DMS sensor. If the light reflects off an object, it returns to the detector and creates a triangle between the emitter and the detector. The incident angle of the reflected light varies based on the distance to the object. The receiver portion of the DMS sensor is a precision lens that transmits reflected light onto various portions of the enclosed linear CCD array based on the incident angle of the reflected light. The CCD array can then determine the incident angle, and thus calculate the distance to the object. This method of ranging is very immune to interference from ambient light and offers indifference to the color of the object being detected. The output distance characteristics of the Sharp `GP2Y0A21YK` sensor. The distance measuring range is approximately `10 to 80 cm`. For details of the sensor, please refer to its datasheet.<br>
-<br>
-You are required to design and build a line following robot. The robot needs to have a function that detect and bypass obstacles on its path automatically. The robot returns to its path of the black line after bypassing the obstacles.
+**DMS sensor**
+`DMS` sensors is used to detect objects or walls within a fixed distance, and the sensor is not affected by color as much as IR Sensors enabling it to measure precise distance. The recommand voltage supply is around `4.5 to 5.5V`, and it could detect in the distance region between `10 to 80 cm`. From the graph below, we could know, even if the color and reflection percentage change, the output value for the distance is barely changed.
 
+[image]
+```c
+void setup(){
+    Serial.begin(9600);
+    pinMode(A0, INPUT); //set in analog pin
+}
+
+void loop(){
+    int senserValue = analogRead(A0);
+    delay(100);
+}
+```
+Signal smoothing : 
+```c
+int readings[10];
+int readIndex, total, average = 0;
+void setup(){
+    Serial.begin(9600);
+    for (int i = 0; i < 10; i++) { readings[i] = 0; } //initialize
+}
+
+void loop(){
+    total = total - readings[readIndex];
+    readings[readIndex] = analogRead(A0);
+    total = total + readings[readIndex];
+    readIndex++ ;
+    if (readIndex >= 10) readIndex = 0;
+    average = total / 10;
+    Serial.println(average);
+    delay(10);
+}
+```
+Serial Plotter :
+```
+Arduino > Tools > Serial Plotter (Ctrl + Shift + L)
+```
+
+**Ultrasonic senser**
+```c
+int TRIGPIN = 12; // Pin to send trigger pulse
+int ECHOPIN = 13; // Pin to receive echo pulse
+void setup() {
+    Serial.begin(9600);
+    pinMode(ECHOPIN, INPUT);
+    pinMode(TRIGPIN, OUTPUT);
+}
+
+void loop() {
+    digitalWrite(TRIGPIN, LOW); // Set the trigger pin to low for 2us
+    delayMicroseconds(2);
+    digitalWrite(TRIGPIN, HIGH); // Send a 10uS high to trigger ranging
+    delayMicroseconds(10);
+    digitalWrite(TRIGPIN, LOW); // Send pin low again
+    int distance = pulseIn(ECHOPIN, HIGH);
+    distance = distance/58; // Calculate distance (in cm) from time of pulse
+    Serial.println(distance);
+    delay(50);
+}
+```
+
+**IR senser**
+An infrared (IR) sensor is an electronic device that emits and detects infrared radiation to sense surroundings. It's `color sensitive`. The IR signal from the emitter does not bounce back to the receiver if the obstacle surface is in black. The threshold of IR could be adjusted by rotating the blue potentiometer in the back of the module.
+```c
+void setup() {
+Serial.begin(9600);
+}
+
+void loop() {
+int sensorValue = analogRead(A0);
+delay(1000);
+}
+```
+This project is required to design and build a line following robot that have a function detecting and bypassing obstacles on its path automatically. The robot has to returns to its path of the black line after bypassing the obstacles.
 
 
 ## AVR-C
