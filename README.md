@@ -40,9 +40,19 @@ In this project, it's required to design a digital watch using an Arduino MCU an
 
 
 #### [Lab03 : Wheel Robot](https://github.com/KoKoLates/Microcontroller/tree/main/Lab03_Arduino_Wheel_Robot)
-An `H-bridge` is a circuit that enables a voltage to be applied across a `DC motor` in either direction. The circuit is known as an `H-Bridge` because it resembles the capital letter H. An H-bridge typically comprises 4 switches. The open and close of the switches determine the motor operation. A `dual` H-bridge board that can be used to control up to `2 DC motors`. The board comes with an L298 H-bridge chip and can provide up to 1 Amps of current to each DC motor. The H-bridge board needs to be wired to the motors, Arduino MCU, and battery appropriately.<br>
-<br>
-You are required to design and build a wheel robot. You are also asked to navigate the wheel robot to circle around a field. To complete this task, you will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns.
+```c
+void loop(){
+    //clockwise
+    digitalWrite(MotorA, HIGH);
+    digitalWrite(MotorB, LOW);
+    //counter-clockwise
+    digitalWrite(MotorA, LOW);
+    digitalWrite(MotorB, HIGH);
+}
+```
+An `H-bridge` is a circuit that enables a voltage to be applied across a DC motor in either direction, and then the `dual H-bridge` board could be used to control up 2 DC motors. The board comes with an `L298 H-bridge` chip and can provide up to 1 Amps of current to each DC motor. The H-bridge board needs to be wired to the motors, Arduino MCU, and battery appropriately.<br/><br/>
+
+In the project, it's required to design and build a wheel robot, and also asked to navigate the wheel robot to circle around a field. To complete this task, it will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns by modifying the voltage value of each `H-bridge`.
 
 
 #### [Lab04 : Line Tracking And Obstacle Avoidance](https://github.com/KoKoLates/Microcontroller/tree/main/Lab04_Arduino_Line_Tracking_with_Obstacles_Evasion)
