@@ -56,14 +56,16 @@ void loop(){
 ```
 An `H-bridge` is a circuit that enables a voltage to be applied across a DC motor in either direction, and then the `dual H-bridge` board could be used to control up 2 DC motors. The board comes with an `L298 H-bridge` chip and can provide up to 1 Amps of current to each DC motor. The H-bridge board needs to be wired to the motors, Arduino MCU, and battery appropriately.<br/><br/>
 
+![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/Hbridge.PNG)
+
 In the project, it's required to design and build a wheel robot, and also asked to navigate the wheel robot to circle around a field. To complete this task, it will need to learn how to control two direct DC motors, moving the wheel robot forward and making right and left turns by modifying the voltage value of each `H-bridge`.
 
 
 #### [Lab04 : Line Tracking And Obstacle Avoidance](https://github.com/KoKoLates/Microcontroller/tree/main/Lab04_Arduino_Line_Tracking_with_Obstacles_Evasion)
 **DMS sensor**
-`DMS` sensors is used to detect objects or walls within a fixed distance, and the sensor is not affected by color as much as IR Sensors enabling it to measure precise distance. The recommand voltage supply is around `4.5 to 5.5V`, and it could detect in the distance region between `10 to 80 cm`. From the graph below, we could know, even if the color and reflection percentage change, the output value for the distance is barely changed.
+`DMS` sensors is used to detect objects or walls within a fixed distance, and the sensor is not affected by color as much as IR Sensors enabling it to measure precise distance. The recommand voltage supply is around `4.5 to 5.5V`, and it could detect in the distance region between `10 to 80 cm`. From the graph below, we could know, even if the color and reflection percentage change, the output value for the distance is barely changed.<br/><br/>
 
-[image]
+![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/DMSreflect.PNG)
 ```c
 void setup(){
     Serial.begin(9600);
