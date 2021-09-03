@@ -27,9 +27,16 @@ void loop(){
 ```
 
 #### [Lab02 : Digital Watch](https://github.com/KoKoLates/Microcontroller/tree/main/Lab02_Arduino_Digital_Watch)
-A `7-segment` LED is an electronic device for displaying decimal numerals. These displays are widely used in digital clocks, electronic meters, and basic calculators. In a typical `7-segment` LED package, all of the cathodes or all of the anodes of the segment LEDs are connected to a common pin. This is referred to as a "common cathode" or "common anode" device <br>
-<br>
-You are required to design and build a digital watch using an Arduino MCU. The digital watch you are required to build comprises two 7-segment LEDs that display time in second. The watch has two modes: a clock mode and a stopwatch mode. The watch has three keys: mode, adjust/start, and reset.
+```c
+void setup(){
+    Serial.begin(9600); //initialize serial communication at 9600 bps
+}
+```
+Arduino function and library : [Reference](https://www.arduino.cc/reference/en/) <br/><br/>
+
+A `7-segment` LED is an electronic device for displaying decimal numerals. These displays are widely used in digital clocks, electronic meters, and basic calculators. In a typical `7-segment` LED package, all of the cathodes or all of the anodes of the segment LEDs are connected to a common pin. This is referred to as a "common cathode" or "common anode" device <br/><br/>
+
+In this project, it's required to design a digital watch using an Arduino MCU and two `7-segment` LEDs that display time in second. The watch must has two modes: a clock mode and a stopwatch mode and has three main buttons: mode, start(adjust), and reset.
 
 
 #### [Lab03 : Wheel Robot](https://github.com/KoKoLates/Microcontroller/tree/main/Lab03_Arduino_Wheel_Robot)
