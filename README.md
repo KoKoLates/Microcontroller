@@ -12,10 +12,19 @@ Input Voltage     | 7 to 12V
 DC I/O current    |40mA
 ```
 #### [Lab01 : Electronic Piano](https://github.com/KoKoLates/Microcontroller/tree/main/Lab01_Arduino_Electronic_Piano)
-The piano generates a square wave at the specific frequency when the corresponding key is pressed. For example, the piano generates a square wave at a frequency of 261.63 Hz when the key C is pressed. Since period is the inverse of frequency, the cycle duration of the signal is 3.816 ms. In a cycle, the signal connected to the buzzer system is ON for 1.908 ms then is OFF for 1.908 ms and so on. This applies to all piano keys, only the frequencies change<br>
-<br>
-Use your piano to play the song “twinkle twinkle little star” and Write a program that plays the song “twinkle twinkle little star” automatically.
+Use the piano to play the song “twinkle twinkle little star” and Write a program that plays the song “twinkle twinkle little star” automatically.<br/>
+```c
+void setup(){
+    //all of the code within the curly braces will be run
+    //ONCE when the program first runs
+}
 
+void loop(){
+    //this function is run AFTER setup has finished, and
+    //all of the code within the curly braces will be run again and again
+    //until the power is removed
+}
+```
 
 #### [Lab02 : Digital Watch](https://github.com/KoKoLates/Microcontroller/tree/main/Lab02_Arduino_Digital_Watch)
 A `7-segment` LED is an electronic device for displaying decimal numerals. These displays are widely used in digital clocks, electronic meters, and basic calculators. In a typical `7-segment` LED package, all of the cathodes or all of the anodes of the segment LEDs are connected to a common pin. This is referred to as a "common cathode" or "common anode" device <br>
