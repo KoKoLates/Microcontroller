@@ -175,7 +175,7 @@ Use a port as keyboard input, and another port as output to the `7-segment` disp
 <br>
 In this lab, you are required to design and build an electronic piano keyboard. The keyboard should contain 7 keys for musical notes C, D, E, F, G, A, and B. It also contains a 7-segment display. The display is used to show the letter of a note when the corresponding key on the keyboard is pressed.
 
-## Installetion
+## Installation
 #### [Arduino](https://www.arduino.cc/)
 #### [Atmel Studio](https://www.space.ntu.edu.tw/navigate/s/75A6ED71D81449949E2587E865B819E2QQY)
 #### [AVR Dudess](https://github.com/KoKoLates/Microcontroller/tree/main/AVR_installation/AVRdudess)
