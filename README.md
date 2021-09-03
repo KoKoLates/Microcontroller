@@ -194,14 +194,78 @@ You are required to design and build a button display using an AVR `ATmega328P` 
 
 
 #### [Lab06 : Electronic Piano With 7 Segment](https://github.com/KoKoLates/Microcontroller/tree/main/Lab06_AVR_C_Electronic_Piano)
-You are required to design and build a digital piano using an AVR `ATmega328P` microcontroller. The piano you are required to build will only use a small subset of keys. Each key is associated with a frequency which will give a key its own unique musical tone. The musical tones are digitally produced using the timer of the microcontroller and are played through a buzzer. The piano should play a tone as long as the corresponding key is pressed.
+ATmega328p has two 8-bit timers (Timer0/Timer2) and one 16-bit Timer2.
+**Timer0 :**
+* TCNT0 (Timer/counter register)
+* TCCR0A/B (Timer/counter control register)
+* TOV0 (Timer overflow flag)
+* OCR0A (Output compare register)
+* OCF0A (Output compare match flag)
+```c
+//Square Wave at 10Hz 
+int main(void){
+    CLKPR = (1 << CLKPCE);
+    CLKPR = 0b00000011; // set clk to 1Mhz
+    DDRD=0b00000001; // PD0 as output
+    PORTD = 0; // initial output 0
+    while(True){
+        TCNT0 = 206;
+        TCCR0A = 0; // normal mode, int clk
+        TCCR0B = 0b00000101; // p=1024, start Timer
+        while ((TIFR0 & (1 << TOV0)) == 0); // wait for flag TOV0=1
+        TCCR0B = 0; // stop Timer
+        TIFR0 = TIFR0 | (1 << TOV0); // clear TOV0
+        PORTD=PORTD^0b00000001;
+    }
+}
+```
+It's required to design and build a digital piano using an AVR `ATmega328P` microcontroller. The piano you are required to build will only use a small subset of keys. Each key is associated with a frequency which will give a key its own unique musical tone. The musical tones are digitally produced using the timer of the microcontroller and are played through a buzzer. The piano should play a tone as long as the corresponding key is pressed.
 
 
 #### [Lab07 : DMS Distance Meter](https://github.com/KoKoLates/Microcontroller/tree/main/Lab07_AVR_C_Distance_Meter)
-Use the pins of Port C to read the DMS signals. Use `PD1` as the `TX` to send the readings to a computer. Use the rest of the pins of `Port D` as the output to a `7-segment` LED. Use `Port B` as the output to the other 7-segment LED. Remember to calibrate the meter you build so that it gives the actual distances rather than the voltages of the DMS sensor.<br>
-<br>
-You are required to design and build a distance meterusing an AVR `ATmega328P` microcontroller. The meter you are required to build will acquire distance using a DMS sensor. It will display the distance in centimeters of 2 decimals on two 7-segment LEDs continuously. The meter will also send the distance readings back to a personal computer.
-
+* Reading the value from DMS senser :
+```c
+int main(void){
+    CLKPR = (1 << CLKPCE);
+    CLKPR = 0b00000011; // set clk to 1Mhz
+    DDRB = 0xFF; // PORTB as output
+    DDRD = 0xFF; // PORTD as output
+    DDRC = 0; // PORTC as input
+    ADCSRA = 0b10000111; // enable + prescaler
+    ADMUX = 0b11000000; // ref volt + channel
+    while (1) {
+        ADCSRA |= (1 << ADIF); // clear ADIF
+        ADCSRA |= (1 << ADSC); // start ADC
+        while((ADCSRA & (1 << ADIF)) == 0); // wait for ADC done
+        PORTD = ADCL; // read low byte first
+        PORTB = ADCH;
+        _delay_ms(200);
+    }
+}
+```
+* Reading the value from DMS senser in free running mode : <br/>
+Read data from ADC0 and displays the result on Port B and Port D indefinitely, enable ADC and select ADC clock to be ck/128 (ADCSRA = 0xAF and ADCSRB = 0x00). Select 1.1V internal reference voltage and ADC0 (ADMUX = 0xC0).
+```c
+#define F_CPU 1000000UL
+#include <avr/io.h>
+#include <util/delay.h>
+int main(void){
+    CLKPR = (1 << CLKPCE);
+    CLKPR = 0b00000011; // set clk to 1Mhz
+    DDRB = 0xFF; // PORTB as output
+    DDRD = 0xFF; // PORTD as output
+    DDRC = 0; // PORTC as input
+    ADCSRA = 0b10100111; // free running mode
+    ADMUX = 0b11000000; // ref volt + channel
+    ADCSRA |= (1 << ADSC); // start ADC
+    while (1) {
+        PORTD = ADCL; // read low byte first
+        PORTB = ADCH;
+        _delay_ms(200);
+    }
+}
+```
+The projects required to design and build a distance meterusing an AVR `ATmega328P` microcontroller. The meter you are required to build will acquire distance using a DMS sensor. It will display the distance in centimeters of 2 decimals on two `7-segment` LEDs continuously. The meter will also send the distance readings back to a personal computer.
 
 #### [Lab08 : Wheel Robot](https://github.com/KoKoLates/Microcontroller/tree/main/Lab08_AVR_C_Wheel_Robot)
 Use `Timer0` and `Timer2` to generate the `PWM` signals. Connect `OC0A` and `OC0B` (`PD6` and `PD5`) to `IN1` and `IN2`. These two output signals control a DC motor. Connect `OC2A` and `OC2B` (`PB3` and `PD3`) to `IN3` and `IN4`. These two output signals control the other DC motor. Write a C program that navigates the wheel robot to circle around the field <br>
