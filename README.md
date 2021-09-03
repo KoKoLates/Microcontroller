@@ -1,7 +1,16 @@
 # Microcontroller
-some projects of Microcontroller Mechatronics
+Some Projects in the Microcontroller Mechatronics lesson. <br>
+[Lecture Video](https://www.youtube.com/playlist?list=PLVHBjRDK0kAJSpLpuJwE5W5nt2gtq3ECq)
 ## Arduino
-
+```
+Microcontroller   | ATmega328 -- Atmel 8-bit MCU
+                  | RISC -- 135 instructions
+                  | 2 8-bit timers
+                  | 1 16-bit timer
+Operating voltage | 5V
+Input Voltage     | 7 to 12V
+DC I/O current    |40mA
+```
 #### [Lab01 : Electronic Piano](https://github.com/KoKoLates/Microcontroller/tree/main/Lab01_Arduino_Electronic_Piano)
 The piano generates a square wave at the specific frequency when the corresponding key is pressed. For example, the piano generates a square wave at a frequency of 261.63 Hz when the key C is pressed. Since period is the inverse of frequency, the cycle duration of the signal is 3.816 ms. In a cycle, the signal connected to the buzzer system is ON for 1.908 ms then is OFF for 1.908 ms and so on. This applies to all piano keys, only the frequencies change<br>
 <br>
@@ -69,3 +78,6 @@ You will gain familiarity with assembly program tracking and debugging using Atm
 Use a port as keyboard input, and another port as output to the `7-segment` display. The keyboard is composed of several keys (switches). Connect a switch to a pin of the input port. Connect the pins of the output port to a 7-segment display. Remember that 7-segment display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write an assembly program that shows the letter of a note when the corresponding key on the keyboard is pressed.<br>
 <br>
 In this lab, you are required to design and build an electronic piano keyboard. The keyboard should contain 7 keys for musical notes C, D, E, F, G, A, and B. It also contains a 7-segment display. The display is used to show the letter of a note when the corresponding key on the keyboard is pressed.
+
+## Installation
+#### [Arduino](https://www.arduino.cc/)
