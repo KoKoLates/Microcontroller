@@ -1,6 +1,6 @@
 # Microcontroller
 Some Projects in the Microcontroller Mechatronics lesson. <br>
-[Lecture Video](https://www.youtube.com/playlist?list=PLVHBjRDK0kAJSpLpuJwE5W5nt2gtq3ECq)
+* [Lecture Video](https://www.youtube.com/playlist?list=PLVHBjRDK0kAJSpLpuJwE5W5nt2gtq3ECq)
 ## Arduino
 ```
 Microcontroller   | ATmega328 -- Atmel 8-bit MCU
