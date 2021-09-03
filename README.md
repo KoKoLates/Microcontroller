@@ -9,7 +9,7 @@ Microcontroller   | ATmega328 -- Atmel 8-bit MCU
                   | 1 16-bit timer
 Operating voltage | 5V
 Input Voltage     | 7 to 12V
-DC I/O current    |40mA
+DC I/O current    | 40mA
 ```
 
 
@@ -144,9 +144,24 @@ This project is required to design and build a line following robot that have a 
 ATmega328p : <br/><br/>
 [image]<br/>
 **AVR MCU Programing**
-* programing the source code in Assembler or higher language
-* compiling to obtain executable file (hex-file, machine language) 
-* using programmer and software to download hex-file to the MCU
+* Programing the source code in Assembler or higher language (C/C++).
+* Compiling to obtain executable file (hex-file, machine language).
+* Using programmer (Arduino) and software to download hex-file to the MCU.
+* Arduino ISP :
+```
+File > Examples > 11.ArduinoISP > ArduinoISP
+```
+[image]
+**AVRDudess**
+```
+Programmer  | Arduino
+Port        | proper Port
+MCU         | ATmega328p
+Baud rate   | 19200
+Read        | Deflaut : L-0xE2 H-0xD9 E-0x07
+Flasf File  | the hex-file
+Programming | click
+```
 #### [Lab05 : Number Display](https://github.com/KoKoLates/Microcontroller/tree/main/Lab05_AVR_C_Button_Display) 
 Use `Ports C` and `Ports D` as the input from the buttons. Connect the buttons to Ports C and D. Note that this connection only works when the pull-up resistors are enabled. Use `Port B` as the output to the `7-segment` LED. Connect the pins of Port B to the 7-segment display. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write a `C` program that displays the number on the 7-segment LED when a corresponding button is pressed.<br>
 <br>
