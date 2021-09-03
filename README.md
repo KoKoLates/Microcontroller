@@ -37,9 +37,8 @@ void setup(){
 ```
 Arduino function and library : [Reference](https://www.arduino.cc/reference/en/) <br/><br/>
 
-A `7-segment` LED is an electronic device for displaying decimal numerals. These displays are widely used in digital clocks, electronic meters, and basic calculators. In a typical `7-segment` LED package, all of the cathodes or all of the anodes of the segment LEDs are connected to a common pin. This is referred to as a "common cathode" or "common anode" device <br/>
+A `7-segment` LED is an electronic device for displaying decimal numerals. These displays are widely used in digital clocks, electronic meters, and basic calculators. In a typical `7-segment` LED package, all of the cathodes or all of the anodes of the segment LEDs are connected to a common pin. This is referred to as a "common cathode" or "common anode" device. <br/><br/>
 ![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/7segament.PNG)
-<br/>
 
 In this project, it's required to design a digital watch using an Arduino MCU and two `7-segment` LEDs that display time in second. The watch must has two modes: a clock mode and a stopwatch mode and has three main buttons: mode, start(adjust), and reset.
 
