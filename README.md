@@ -141,6 +141,10 @@ This project is required to design and build a line following robot that have a 
 
 
 ## AVR-C
+ATmega328p : <br/><br/>
+[image]
+
+
 #### [Lab05 : Number Display](https://github.com/KoKoLates/Microcontroller/tree/main/Lab05_AVR_C_Button_Display) 
 Use `Ports C` and `Ports D` as the input from the buttons. Connect the buttons to Ports C and D. Note that this connection only works when the pull-up resistors are enabled. Use `Port B` as the output to the `7-segment` LED. Connect the pins of Port B to the 7-segment display. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write a `C` program that displays the number on the 7-segment LED when a corresponding button is pressed.<br>
 <br>
