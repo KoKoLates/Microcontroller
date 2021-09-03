@@ -163,9 +163,34 @@ Flasf File  | the hex-file
 Programming | click
 ```
 #### [Lab05 : Number Display](https://github.com/KoKoLates/Microcontroller/tree/main/Lab05_AVR_C_Button_Display) 
-Use `Ports C` and `Ports D` as the input from the buttons. Connect the buttons to Ports C and D. Note that this connection only works when the pull-up resistors are enabled. Use `Port B` as the output to the `7-segment` LED. Connect the pins of Port B to the 7-segment display. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write a `C` program that displays the number on the 7-segment LED when a corresponding button is pressed.<br>
-<br>
-You are required to design and build a button display using an AVR `ATmega328P` microcontroller. The display will use buttons as the input peripheral and a 7-segment LED as the output peripheral. The display has 10 keys, including digits 0 to 9. The display will show the character of a key on the 7-segment LED if the key is pressed. After completing this lab you should be able to master in AVR I/O programming
+```
+DDRx : Data Direction
+PORTx : Output Mode
+PINx : Input Mode
+x = B, C or D
+```
+* I/O :
+```C
+//Output
+DDRD = 0b11111111; //0xFF
+PORTD = 0b11110000; //HIGH from PD4 to PD7
+
+//Input
+DDRB = 0x0;
+DDRD = 0xFF; 
+while(True){
+    PORTD = PINB + 5;
+}
+
+//Input with pull-up
+DDRB = 0x0;
+PORTB = 0xFF;
+DDRD = 0xFF;
+while(True){
+    PORTD = PINB;
+}
+```
+You are required to design and build a button display using an AVR `ATmega328P` microcontroller. The display will use buttons as the input peripheral and a `7-segment` LED as the output peripheral. The display has 10 keys, including digits 0 to 9. The display will show the character of a key on the 7-segment LED if the key is pressed. After completing this lab you should be able to master in AVR I/O programming.
 
 
 #### [Lab06 : Electronic Piano With 7 Segment](https://github.com/KoKoLates/Microcontroller/tree/main/Lab06_AVR_C_Electronic_Piano)
