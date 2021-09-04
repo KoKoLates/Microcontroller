@@ -306,11 +306,38 @@ It's required to design and build a wheel robot. You are also asked to navigate 
 
 ## AVR-Assembly
 #### [Lab09 : Number Digits Display](https://github.com/KoKoLates/Microcontroller/tree/main/Lab09_AVR_Assembly_Number_Display)
-LDI (Load Immediate) : loading values into the general purpose registers. The value of RD is from 16 to 31, and K is 0 to 255
+* LDI (Load Immediate) : <br/>
+loading values into the general purpose registers. The value of RD is from 16 to 31, and K is 0 to 255.
 ```assembly
-LDI RD K; 
+LDI RD, K; 
 ```
-Connect appropriate pins of the `ATmega328P` to the 7-segment displays. Remember that `7-segment` display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. For details of the 7-segment display, please refer to its data sheet. Write an assembly program that shows the number digits 0 through 99 indefinitely. You are required to display number digits on two 7-segment LED using an AVR `ATmega328P` microcontroller. The digits to be displayed are from 0 through 99. Each digit is displayed for a short period of time (e.g., 0.2 sec). The digits are displayed indefinitely using a loop.
+* ADD : <br/>
+add and store values in the general purpose registers where RD between 0 to 31 and RS between 0 to 31.
+```assembly
+ADD RD, RS;
+```
+* SUB : <br/>
+subtract and store values in the general purpose registers, RD between 0 to 31 and RS between 0 to 31.
+```assembly
+SUB RD, RS;
+```
+* INC & DEC : <br/>
+increment / decrement the contents of a register by one and RD is 0 to 31.
+```assembly
+INC RD;
+DEC RD;
+```
+Input mode with pull-up :
+```assembly
+LDI R20, 0x0; //R20 = 00000000
+OUT DDRB, R20; //DDRB = R20
+LDI R20, 0xFF; //R20 = 11111111
+OUT DDRD, R20; //DDRD = R20
+OUT PORTB, R20; //pull-up enabled
+IN R20, PINB; //R20 = PINB
+OUT PORTD, R20; //PORTD = R20
+```
+You are required to display number digits on two 7-segment LED using an AVR `ATmega328P` microcontroller. The digits to be displayed are from 0 through 99. Each digit is displayed for a short period of time. The digits are displayed indefinitely using a loop.
 
 
 #### [Lab10 : Assembly Program Simulation](https://github.com/KoKoLates/Microcontroller/tree/main/Lab10_AVR_Assembly_Program_Simulation)
