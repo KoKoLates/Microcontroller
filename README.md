@@ -306,6 +306,10 @@ It's required to design and build a wheel robot. You are also asked to navigate 
 
 ## AVR-Assembly
 #### [Lab09 : Number Digits Display](https://github.com/KoKoLates/Microcontroller/tree/main/Lab09_AVR_Assembly_Number_Display)
+LDI (Load Immediate) : loading values into the general purpose registers. The value of RD is from 16 to 31, and K is 0 to 255
+```assembly
+LDI RD K; 
+```
 Connect appropriate pins of the `ATmega328P` to the 7-segment displays. Remember that `7-segment` display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. For details of the 7-segment display, please refer to its data sheet. Write an assembly program that shows the number digits 0 through 99 indefinitely. You are required to display number digits on two 7-segment LED using an AVR `ATmega328P` microcontroller. The digits to be displayed are from 0 through 99. Each digit is displayed for a short period of time (e.g., 0.2 sec). The digits are displayed indefinitely using a loop.
 
 
