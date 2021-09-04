@@ -268,10 +268,40 @@ int main(void){
 The projects required to design and build a distance meterusing an AVR `ATmega328P` microcontroller. The meter you are required to build will acquire distance using a DMS sensor. It will display the distance in centimeters of 2 decimals on two `7-segment` LEDs continuously. The meter will also send the distance readings back to a personal computer.
 
 #### [Lab08 : Wheel Robot](https://github.com/KoKoLates/Microcontroller/tree/main/Lab08_AVR_C_Wheel_Robot)
-Use `Timer0` and `Timer2` to generate the `PWM` signals. Connect `OC0A` and `OC0B` (`PD6` and `PD5`) to `IN1` and `IN2`. These two output signals control a DC motor. Connect `OC2A` and `OC2B` (`PB3` and `PD3`) to `IN3` and `IN4`. These two output signals control the other DC motor. Write a C program that navigates the wheel robot to circle around the field <br>
-<br>
-You are required to design and build a wheel robot. You are also asked to navigate the wheel robot to circle around a field. To complete this task, you will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns.
+Pulse Width Modulation (PWM) providing control on output power pf a binary output device without changing hardware. And the heat dissipated versus using resistor for intermediate voltage values.
+```c
+CLKPR = (1 << CLKPCE);
+CLKPR = 0b00000011;
+DDRD = 0xFF; 
+OCR0A = 203; 
+OCR0B = 50; 
+TCCR0A = 0b10100001; 
+TCCR0B = 0b00000101;
+```
+* ADC Interrupt Program :
+```c
+#include <avr/io.h>
+#include <avr/interrupt.h>
+volatile unsigned int value;
 
+int main(void){
+    DDRC = 0;
+    sei(); // enable global interrupts
+    ADMUX = 0b01000000;
+    ADCSRA = 0xFF;
+    while(1);
+}
+
+ISR(ADC_vect) {
+    unsigned char low, high;
+    ADCSRA |= (1 << ADIF); // clear ADIF
+    low = ADCL; // read low byte first
+    high = ADCH;
+    value = (high << 8) + low;
+}
+```
+
+It's required to design and build a wheel robot. You are also asked to navigate the wheel robot to circle around a field. To complete this task, you will need to learn how to control two direct current (DC) motors, moving the wheel robot forward and making right and left turns.
 
 
 ## AVR-Assembly
