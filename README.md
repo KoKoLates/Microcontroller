@@ -142,7 +142,7 @@ This project is required to design and build a line following robot that have a 
 
 ## AVR-C
 ATmega328p : <br/><br/>
-[image]<br/>
+![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/ATmega328p.PNG) <br/>
 **AVR MCU Programing**
 * Programing the source code in Assembler or higher language (C/C++).
 * Compiling to obtain executable file (hex-file, machine language).
@@ -151,7 +151,7 @@ ATmega328p : <br/><br/>
 ```
 File > Examples > 11.ArduinoISP > ArduinoISP
 ```
-[image]
+![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/arduinoISP.PNG) <br/>
 **AVRDudess**
 ```
 Programmer  | Arduino
@@ -341,6 +341,32 @@ You are required to display number digits on two 7-segment LED using an AVR `ATm
 
 
 #### [Lab10 : Assembly Program Simulation](https://github.com/KoKoLates/Microcontroller/tree/main/Lab10_AVR_Assembly_Program_Simulation)
+* LDS (Load Data form space) : <br/>
+where RD is between 0 to 31, and K is between $0000 to $FFFF.
+```assembly
+LDS RD, K; 
+```
+* .EQU & .SET : <br/>
+``` assembly
+.EQU name = value;
+.SET name = value;
+
+[label:] MNEMONIC [operands] ; [comment] 
+```
+![image]
+```assembly
+       LDI R16, 0x25
+       LDI R17, $34
+       LDI R18, 0x31
+       ADD R16, R17
+       ADD R16, R18
+       LDI R17, 11
+       ADD R16, R17
+       STS 0x300, R16
+HERE : JMP HERE
+```
+MNEMONIC is derective instruction, and it's mean that it's command to CPU and direct to the assembler. Directive also mean it doesn't generate any machine code. Besides, the operands are data items being manipulated.
+
 You will gain familiarity with assembly program tracking and debugging using Atmel Studio.
 
 
