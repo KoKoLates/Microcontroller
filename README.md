@@ -351,7 +351,7 @@ LDS RD, K;
 .EQU name = value;
 .SET name = value;
 
-[label:] MNEMONIC [operands] [;comment] 
+[label:] MNEMONIC [operands] ; [comment] 
 ```
 ![image]
 ```assembly
