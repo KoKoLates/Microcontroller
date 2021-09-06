@@ -437,6 +437,6 @@ In this project lab, you are required to design and build an electronic piano ke
 
 ## Installation
 #### [Arduino](https://www.arduino.cc/)
-#### [Atmel Studio](https://www.space.ntu.edu.tw/navigate/s/75A6ED71D81449949E2587E865B819E2QQY)
+#### [Atmel Studio](https://github.com/KoKoLates/Microcontroller/releases/tag/v7.0)
 #### [AVR Dudess](https://github.com/KoKoLates/Microcontroller/tree/main/AVR_installation/AVRdudess)
 
