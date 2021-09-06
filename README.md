@@ -365,12 +365,15 @@ LDS RD, K;
        STS 0x300, R16
 HERE : JMP HERE
 ```
-MNEMONIC is derective instruction, and it's mean that it's command to CPU and direct to the assembler. Directive also mean it doesn't generate any machine code. Besides, the operands are data items being manipulated.
+`MNEMONIC` is derective instruction, and it's mean that it's command to CPU and direct to the assembler. Directive also mean it doesn't generate any machine code. Besides, the operands are data items being manipulated.
 
 You will gain familiarity with assembly program tracking and debugging using Atmel Studio.
 
 
 #### [Lab11 : Eletronic Piano Keyboard With 7 Segment](https://github.com/KoKoLates/Microcontroller/tree/main/Lab11_AVR_Assembly_Electronic_Keyboard)
+```assembly
+[Jump] & [Call]
+```
 Use a port as keyboard input, and another port as output to the `7-segment` display. The keyboard is composed of several keys (switches). Connect a switch to a pin of the input port. Connect the pins of the output port to a 7-segment display. Remember that 7-segment display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write an assembly program that shows the letter of a note when the corresponding key on the keyboard is pressed.<br>
 <br>
 In this lab, you are required to design and build an electronic piano keyboard. The keyboard should contain 7 keys for musical notes C, D, E, F, G, A, and B. It also contains a 7-segment display. The display is used to show the letter of a note when the corresponding key on the keyboard is pressed.
