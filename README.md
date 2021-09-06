@@ -371,12 +371,69 @@ You will gain familiarity with assembly program tracking and debugging using Atm
 
 
 #### [Lab11 : Eletronic Piano Keyboard With 7 Segment](https://github.com/KoKoLates/Microcontroller/tree/main/Lab11_AVR_Assembly_Electronic_Keyboard)
+* Jump : <br/>
+changes the PC and causes the CPU to execute an instruction at a target location assigned by a label. There are two kinf of `Jump`, the uncondtional one that program jumps to anyway and the conditional one then jump if the condition is true, otherwise, it executes the next section.
 ```assembly
-[Jump] & [Call]
+     LDI R20, 0b00000001
+     LDI R21, 0b00000000
+     OUT DDRD, R20
+L1 : OUT PORTD, R20
+     CALL DELAY
+     OUT PORTD, R21
+     CALL DELAY
+     JMP L1
 ```
-Use a port as keyboard input, and another port as output to the `7-segment` display. The keyboard is composed of several keys (switches). Connect a switch to a pin of the input port. Connect the pins of the output port to a 7-segment display. Remember that 7-segment display is composed of 7 LEDs. Place appropriate resistors when wiring the display to the microcontroller to prevent burnout. Write an assembly program that shows the letter of a note when the corresponding key on the keyboard is pressed.<br>
-<br>
-In this lab, you are required to design and build an electronic piano keyboard. The keyboard should contain 7 keys for musical notes C, D, E, F, G, A, and B. It also contains a 7-segment display. The display is used to show the letter of a note when the corresponding key on the keyboard is pressed.
+The unconditional jump instructions in AVR : `JMP`, `RJMP` and `IJMP`. `RJMP` is relative jump and `IJMP` is indirect jump.<br/><br/>
+
+* SBI : <br/>
+set bit in I/O register.
+```assembly
+SBI ioReg, bit
+```
+* CBI : <br/>
+clear bit in I/O register.
+```assembly
+CBI ioReg, bit
+```
+* SBIS : <br/>
+skip the next instruction if bit in I/O register set.
+```assembly
+SBIS ioReg, bit
+```
+* SBIC : <br/>
+skip the next instruction if bit in I/O register cleared.
+```assembly
+SBIC ioReg, bit
+```
+* LED Switch : 
+```assembly
+       CBI DDRB, 5 ;make PB5 an input
+       SBI DDRB, 7 ;make PB7 an output
+AGAIN: SBIC PINB, 5 ;skip next if PB5 is clear
+       RJMP TURNON
+       CBI PORTB, 7 ;PB7 output LOW
+       RJMP AGAIN
+TURNON:SBI PORTB, 7 ;PB7 output HIGH
+       RJMP AGAIN
+```
+* Bitwise munipulation in C language :
+An AVR embedded C program that toggle all the bits of PORTB 200 times with a delay of 1 second.
+```C
+#include <avr/io.h>
+#include <util/delay.h>
+#define F_CPU 1000000UL
+
+int main (void){
+    DDRB = 0xFF;
+    PORTB = 0xAA;
+    for(int z=0; z<200; z++){
+        PORTB = ~PORTB;
+        _delay_ms(1000);
+    }
+    return 0;
+}
+```
+In this project lab, you are required to design and build an electronic piano keyboard. The keyboard should contain 7 keys for musical notes C, D, E, F, G, A, and B. It also contains a `7-segment display`. The display is used to show the letter of a note when the corresponding key on the keyboard is pressed.
 
 ## Installation
 #### [Arduino](https://www.arduino.cc/)
