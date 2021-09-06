@@ -142,7 +142,7 @@ This project is required to design and build a line following robot that have a 
 
 ## AVR-C
 ATmega328p : <br/><br/>
-[image]<br/>
+[image](https://github.com/KoKoLates/Microcontroller/blob/main/images/ATmega328p.PNG)
 **AVR MCU Programing**
 * Programing the source code in Assembler or higher language (C/C++).
 * Compiling to obtain executable file (hex-file, machine language).
@@ -151,7 +151,7 @@ ATmega328p : <br/><br/>
 ```
 File > Examples > 11.ArduinoISP > ArduinoISP
 ```
-[image]
+[image](https://github.com/KoKoLates/Microcontroller/blob/main/images/arduinoISP.PNG)
 **AVRDudess**
 ```
 Programmer  | Arduino
