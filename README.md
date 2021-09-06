@@ -353,7 +353,7 @@ LDS RD, K;
 
 [label:] MNEMONIC [operands] ; [comment] 
 ```
-![image]
+![image](https://github.com/KoKoLates/Microcontroller/blob/main/images/instruction.PNG)
 ```assembly
        LDI R16, 0x25
        LDI R17, $34
